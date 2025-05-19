@@ -10,7 +10,6 @@ import Image7 from '../assets/images/image (7).png'
 import Image8 from '../assets/images/image (8).png'
 
 
-
 const destinations = [
   { title: 'Paris', tours: '100+ Tours', img: Image1 },
   { title: 'Singapore', tours: '300+ Tours', img: Image2 },
@@ -57,7 +56,12 @@ export default function Slider() {
   const handleMouseLeave = () => setIsPaused(false);
 
   return (
+
     <div className="slider-wrapper">
+      <div className="d-flex justify-content-between align-items-center mb-4 mt-5">
+        <h3 className="fw-bold text-dark mt-5 ms-3">Trending destinations</h3>
+        <a href="#" className="text-primary fw-semibold me-3">See all</a>
+      </div>
       <div className="slider-container" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
         <div className="slider" ref={sliderRef}>
           {destinations.map((dest, index) => (
@@ -69,7 +73,6 @@ export default function Slider() {
           ))}
         </div>
       </div>
-
       <div className="slider-dots text-center mt-3">
         {Array.from({ length: totalDots }).map((_, index) => (
           <span key={index} className={`dot ${index === currentIndex % totalDots ? 'active' : ''}`}></span>
